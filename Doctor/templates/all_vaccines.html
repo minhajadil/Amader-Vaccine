@@ -1,0 +1,74 @@
+{% extends "base.html" %} 
+
+{% load static %}
+
+{% block css %}<link rel='stylesheet' href="{% static 'blog/css/style3.css' %}"> {% endblock css %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+
+
+
+
+
+<div class="row" style='width:900px ; margin:auto ; padding:30px; padding-top:50px; padding-bottom:100px;'>
+
+  <div class="add-vac d-flex ">
+    <h3 class='text-center pb-3'>Available Vaccines</h3>
+    {% if doctor %}
+
+
+<div style='width:300px ; margin:auto;' class=' text-center '>
+
+  <a class='btn btn-warning mb-3  mx-5' href="{% url 'add_vaccine' %}"> Add Vaccine</a>
+
+
+
+</div>
+
+{% endif %}
+
+  </div>
+
+    
+    <hr>
+
+    {% for vaccine in db  %}
+
+    <div class="col-sm-4" style='margin-top:20px ;'>
+        
+      <div class="card h-100 " >
+        <img class="card-img-top h-100 " src="{{vaccine.images.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{vaccine.name}}</h5>
+          <p class="card-text">Date of First Dose : {{vaccine.initial_dose}}</p>
+          <a href="{% url 'vaccine_details' vaccine.id %}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+   
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

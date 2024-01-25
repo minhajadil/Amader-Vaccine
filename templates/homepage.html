@@ -1,0 +1,201 @@
+{% extends "base.html" %} 
+
+
+
+
+
+{% load static %}
+{% block css %}<link rel='stylesheet' href="{% static 'homepage/homepage.css' %}"> {% endblock css %}
+
+  
+
+
+
+
+
+
+
+
+
+
+{% block content  %}
+
+
+<div id = 'banner-slider' class="swiffy-slider .slider-indicators-round slider-nav-round slider-nav-animation slider-nav-animation-fadein slider-item-last-visible">
+  <ul class="slider-container">
+      <li class="slide-visible">
+          <div class="banner-container p-4">
+              <div class="banner">
+                  <div class="bannner-left  ">
+                      <h1 class="text">Providing Best Healthcare</h1>
+                      <p class="text">At Amader Vaccine, we are dedicated to delivering top-notch healthcare services. Our committed team of medical professionals strives to ensure your well-being and satisfaction.</p>
+                  </div>
+                  <div class="banner-right">
+                      <img src="{% static 'images/mid-banner-1.jpg' %}" alt="">
+                  </div>
+              </div>
+          </div>
+      </li>
+
+      <li class="slide-visible">
+        <div class="banner-container-2 p-4 ">
+            <img class="banner-img" src="{% static 'images/mid-banner-2.jpg' %}"  alt="...">
+            <div class="card-img-overlay d-flex align-items-start align-items-md-center justify-content-center flex-column">
+              <div class="bannner-left "> 
+
+                <div class="banner-2-txt">
+                  <h2>Embarking on a Journey to Wellness</h2>
+                  <h5 >Welcome to Amader Vaccine, </h5> 
+                  <h6> where excellence in healthcare meets the promise of a healthier tomorrow.</h6>
+                </div>
+              
+            </div>
+            </div>
+        </div>
+    </li>
+
+
+
+  </ul>
+
+  
+
+  <button type="button" class="slider-nav" aria-label="Go left"></button>
+  <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+  <div class="slider-indicators">
+      <button class="" aria-label="Go to slide"></button>
+      <button aria-label="Go to slide" class=""></button>
+      <button aria-label="Go to slide" class="active"></button>
+  </div>
+</div>
+
+
+<div class="mid-part">
+
+    <div class="mid-container  ">
+        <h3>Available Vaccines</h3>
+        <hr>
+
+        <div style='padding:30px;' class="swiffy-slider slider-item-show3 slider-item-reveal .slider-indicators-round slider-nav-round slider-nav-animation slider-nav-animation-fadein">
+            <ul class="slider-container" id="slider2" >
+
+                {% for blog in vaccines %}
+
+
+                <li>
+                    <div class="card h-100" style="width: 18rem;">
+                        <img style='height:100%;'  src="{{blog.images.url}}" class="card-img-top card-image" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{blog.name}}</h5>
+                          <a href="{% url 'vaccine_details' blog.id %}" class="btn btn-primary">Details</a>
+                        </div>
+                      </div>
+                 
+                </li>
+
+                {% endfor %}
+               
+            </ul>
+        
+            <button  type="button" class="slider-nav" aria-label="Go to previous"></button>
+            <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+<div class="mid-part">
+
+    <div class="mid-container  ">
+        <h3> Health Related Blogs</h3>
+        <hr>
+
+        <div style='padding:30px;' class="swiffy-slider slider-item-show3 slider-item-reveal .slider-indicators-round slider-nav-round slider-nav-animation slider-nav-animation-fadein">
+            <ul class="slider-container" id="slider2" >
+
+                {% for blog in blogs %}
+
+
+                <li>
+                    <div class="card h-100" style="width: 18rem;">
+                        <img style='height:100%;'  src="{{blog.image.url}}" class="card-img-top card-image" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">{{blog.title}}</h5>
+                          <a href="{% url 'post_details' blog.id %}" class="btn btn-primary"> Read More</a>
+                        </div>
+                      </div>
+                 
+                </li>
+
+                {% endfor %}
+               
+            </ul>
+        
+            <button  type="button" class="slider-nav" aria-label="Go to previous"></button>
+            <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

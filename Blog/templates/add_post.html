@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block css %}<link rel='stylesheet' href="{% static 'blog/css/styles.css' %}"> {% endblock css %}
+
+
+
+{% block content %}
+
+<h3 class='post-text mt-2 mb-2 '> Post a Blog ! </h3>
+
+<div class='form-bg'>
+
+
+
+
+<form method="post" style="width: 50%; margin: auto" enctype="multipart/form-data" >
+    
+
+
+  {% csrf_token %} 
+
+  {% if form.non_field_errors %}
+      {% for er in form.non_field_errors %}
+        <p class="bg-danger text-white p-3">{{er}}</p>
+      {% endfor %}
+      {% endif %}
+
+
+   <!-- {{form | crispy }} -->
+ 
+  
+  {% comment %} {{form.title.label_tag}} {{form.title}} {{form.title.errors|striptags}} 
+  {{form.content.label_tag}} {{form.content}} {{form.content.errors|striptags}} 
+  {{form.category.label_tag}} {{form.category}} {{form.category.errors|striptags}} 
+  {{form.image.label_tag}} {{form.image}} {{form.image.errors|striptags}}
+</br>  {% endcomment %}
+
+{{form}}
+  
+
+  <button class="btn btn-primary mt-2  align-items-center" type="submit">POST</button>
+</form>
+
+
+</div>
+
+
+
+{% endblock content %}

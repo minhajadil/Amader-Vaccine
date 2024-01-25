@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block css %}<link rel='stylesheet' href="{% static 'account/css/styles.css' %}"> {% endblock css %}
+
+
+
+{% block content %}
+
+  <section class ='login'>
+    <div class="container">
+
+      <div class="row inner ">
+        <h4 class='text-center '>  Welcome to Amader Vaccine </h5> 
+
+        <div class="col-lg-6">
+          
+          <img src="{% static 'account\images\login.jpg' %}" class="img-fluid " alt="">
+        </div>
+
+        
+
+        <form class="col-lg-4" method="post" style="width: 25%; margin-bottom :70px ;margin-left:100px" novalidate>
+          <h5 class='text-center'>Please Login</h5>
+          {% csrf_token %} 
+        
+        
+           <!-- {{form | crispy }} -->
+          {% for fm in form%}
+          
+          {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} 
+          <br />
+          {% endfor %}
+          
+        
+          <button class="btn btn-warning " type="submit">Submit</button>
+        </form>
+        
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

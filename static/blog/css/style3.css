@@ -1,0 +1,26 @@
+.card {
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #ddd;
+  }
+
+  .image {
+    float: left;
+    background: #000;
+    width: 25%;
+    height: 150px
+  }
+
+  .content {
+    float: left;
+    height: 140px;
+    width: 73%;
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  .content h4 {
+    margin: 5px 0;
+    
+  }
+

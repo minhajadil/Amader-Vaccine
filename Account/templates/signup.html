@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block css %}<link rel='stylesheet' href="{% static 'account/css/styles.css' %}"> {% endblock css %}
+
+
+{% block content %}
+
+  <section class ='login'>
+    <div class="container">
+
+      <div class="row inner ">
+        <h4 class='text-center pt-3  '>  Welcome to Amader Vaccine </h5> 
+
+        <div class="col-lg-5">
+
+          {% if signup_doctor %}
+          <img  src="{% static 'account\images\regpage.png' %}" class="img-fluid "style='height:500px;' alt="">
+
+          {% else %}
+          <img  src="{% static 'account\images\patientreg.png' %}" class="img-fluid pb-4 " alt="">
+
+          {% endif %}
+          
+          
+        </div>
+
+        
+
+        <form class="col-lg-6" method="post" style=" margin-top:40px ;margin-bottom :100px ;" novalidate>
+
+          {% if signup_doctor %}
+          <h5 class='text-center'>Doctor Registration</h5>
+
+          {% else %}
+          <h5 class='text-center'>Patient Registration</h5>
+
+          {% endif %}
+          {% csrf_token %} 
+          <!-- {{form | crispy }} -->
+
+          <div class="row">
+
+            <div class="col-6">
+              {{form.username.label_tag}} {{form.username}} {{form.username.errors|striptags}}
+              {{form.first_name.label_tag}} {{form.first_name}} {{form.first_name.errors|striptags}}
+              {{form.nid.label_tag}} {{form.nid}} {{form.nid.errors|striptags}}
+              {{form.password1.label_tag}} {{form.password1}} {{form.password1.errors|striptags}}
+             
+            </div>
+
+            <div class='col-6'>
+            {{form.email.label_tag}} {{form.email}} {{form.email.errors|striptags}}
+            {{form.last_name.label_tag}} {{form.last_name}} {{form.last_name.errors|striptags}}
+
+            {% if signup_doctor %}
+            {{form.password2.label_tag}} {{form.password2}} {{form.password_confirmation.errors|striptags}}
+            
+
+            {% else %}
+            
+            <div style='margin-top: 64px;'>
+              {{form.password2.label_tag}} {{form.password2}} {{form.password_confirmation.errors|striptags}}
+            </div>
+            
+
+            {% endif %}
+        
+            
+          </div>
+
+
+
+
+          </div>
+
+      
+
+
+        
+        
+           
+           
+          
+        
+          <button class="p-2 mt-3 btn text-center w-100  btn-primary" type="submit">Submit</button>
+        </form>
+        
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

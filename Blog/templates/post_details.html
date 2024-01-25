@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}<link rel='stylesheet' href="{% static 'blog/css/style2.css' %}"> {% endblock css %}
+
+
+{% block content %}
+
+<body>
+    <div class="post-container">
+        <div class="post-header">
+            <h1>{{post.title}}</h1>
+            <p>{{post.date}}</p>
+        </div>
+        <div class="post-content">
+            <img src="{{post.image.url}}" alt="Post Image" class="post-image">
+            <p>{{post.content}}</p>
+
+            {% for cat in post.category.all %}
+
+      <a  class='btn btn-info' href="#"> {{cat.type}}</a>
+           
+      
+
+      {% endfor %}
+        </div>
+
+
+
+
+      
+        {% comment %} <div class="author-info">
+           
+            <div>
+                <h3 class="author-name">Author Name : {{ post.author.user.first_name }} {{ post.author.user.last_name }}</h3>
+               
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+
+
+
+{% endblock content %}
+
+
+

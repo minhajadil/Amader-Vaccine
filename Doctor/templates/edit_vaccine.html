@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block css %}<link rel='stylesheet' href="{% static 'vaccine/css/style.css' %}"> {% endblock css %}
+
+
+
+{% block content %}
+
+<h3 class='post-text mt-2 mb-2 '> Edit This Vaccine</h3>
+
+<div class='form-bg'>
+
+
+
+
+<form method="post" style="width: 50%; margin: auto" enctype="multipart/form-data" >
+    
+
+
+  {% csrf_token %} 
+
+  {% if form.non_field_errors %}
+      {% for er in form.non_field_errors %}
+        <p class="bg-danger text-white p-3">{{er}}</p>
+      {% endfor %}
+      {% endif %}
+
+
+   <!-- {{form | crispy }} -->
+ 
+  
+
+{{form}}
+  
+
+  <button class="btn btn-primary mt-2  align-items-center" type="submit">Edit</button>
+</form>
+
+
+</div>
+
+
+
+{% endblock content %}

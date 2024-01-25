@@ -1,0 +1,88 @@
+{% extends "base.html" %} {% block content %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block css %}<link rel='stylesheet' href="{% static 'account/css/profile.css' %}"> {% endblock css %}
+
+
+{% if messages %}
+    {% for message in messages %}
+   <h1 class="text-success  ">{{message}}</h1>
+
+    {% endfor %}
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+      <h2 class='text-center'>Profile</h2>
+      
+      <div class="profile-card">
+        <div class="profile-details">
+          <div class="profile-info">
+            <h3 class='pb-2'>Personal Information</h3>
+            <h6> <strong> First Name: </strong> {{user.first_name}}</h6>
+            <h6> <strong>Last Name: </strong> {{user.last_name}}</h6>
+            <p><strong>Email: </strong> {{user.email}}</p>
+            {% if doctor %}
+            {% else %}
+            <p> <strong>NID:</strong> {{user.account.nid}}</p>
+            {% endif %}
+          </div>
+          {% if doctor %}
+          <img src="{% static 'images/doc.jpg' %}" alt="Patient Avatar" class="avatar">
+          {% else %}
+          <img src="{% static 'images/patient.png' %}" alt="Patient Avatar" class="avatar">
+
+        {% endif %}
+        </div>
+      
+
+        <div class="btn-container">
+          <a class="btn btn-primary "  href="{%url 'changedata' user.id %}"> Edit Profile </a>
+
+        
+
+          
+         
+
+        <div class="dropdown mb-3">
+          
+          <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Change Password
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class='dropdown-item' href="{%url 'passchange1' %}"> Change Password with Previous </a></li>
+            <li> <a class='dropdown-item'   href="{%url 'passchange2' %}"> Change Password without Previous </a></li>
+            
+          </ul>
+        </div>
+      </div>
+        
+      </div>
+    </div>
+    
+
+   
+
+  
+
+
+
+ 
+
+
+
+
+
+
+{% endblock content %}

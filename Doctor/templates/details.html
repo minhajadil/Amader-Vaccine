@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block css %}<link rel='stylesheet' href="{% static 'homepage/vaccine_details.css' %}"> {% endblock css %}
+
+
+{% block content %}
+
+
+
+<div class="card p-5" style="width: 900px; margin:auto">
+    <div class="row g-0">
+        <div class="col-sm-5">
+            <img src="{{db.images.url}}" class="card-img-top h-100" alt="...">
+        </div>
+        <div class="col-sm-7">
+            <div class="card-body">
+                <h3> {{db.name}}</h3>
+
+                <h5> Added by : Dr {{db.doctor.user.first_name}} {{db.doctor.user.last_name}} </h5>
+
+                <div class="dose-dates gap-1 ">
+                    <p class="dose-date">First Dose: {{db.initial_dose}}</p>
+                    <p class="dose-date">Second Dose: {{db.second_dose}}</p>
+                    <p class="dose-date">Third Dose:{{db.third_dose}}</p>
+                </div>
+                <div class='d-flex gap-2'>
+
+                    {% if request.user.is_authenticated %}
+        
+                    {% if has_edit_access %} 
+                    <a class="btn btn-warning " href="{% url 'edit_vaccine' db.id %}"> Edit </a>
+                    <a class="btn btn-danger " href="{% url 'delete_vaccine' db.id %}"> Delete </a>
+        
+                    {% else %}
+        
+                    {% if has_taken %}
+        
+        <a class='btn btn-danger ' href="#"> Taken </a>
+        
+        <a class='btn btn-warning ' href="{% url 'comment' db.id  %}"> Comment</a>
+        
+        {% else %}
+        
+        <a class='btn btn-primary' href="{% url 'takevaccine' db.id %}"> Take this Vaccine</a>
+        
+        
+        {% endif %}
+        
+        
+        
+                    {% endif %}
+        
+                    {% endif %}
+        
+                </div>
+            </div>
+
+ 
+
+
+
+
+
+        </div>
+    </div>
+    <div class="precautions-section text-white text-center" style="background-color: #007bff;">
+        <div class="precautions-title">Precautions:</div>
+        <ul class="precaution-list">
+            <li class="precaution-item">Follow the recommended dosage.</li>
+            <li class="precaution-item">Consult with your healthcare provider before vaccination.</li>
+            <li class="precaution-item">Report any side effects to your healthcare provider.</li>
+            <!-- Add more precautions as needed -->
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class=" p-2 w-100   bg-body-secondary  ">
+    <div class="text-center">
+        <h1 class="mb-4 pt-5 ">Reviews</h1>
+         <h4 class='px-3 '>Total :{{comment| length}}</h4>
+   
+
+
+ 
+
+
+       
+
+
+     <div class='row gap-3 p-2'> 
+       {% for cm in comment %}
+
+     
+       <div class="card text-black bg-secondary-subtle  mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{cm.created_on}}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{cm.user.first_name}} {{cm.user.last_name}}</h5>
+          <p class="card-text">{{cm.Comment}}</p>
+        </div>
+      </div>
+   
+    
+       {% endfor %}
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+{% endblock content %}

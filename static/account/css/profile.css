@@ -1,0 +1,39 @@
+.profile-card {
+    width: 70%;
+    max-width: 600px; /* Set a maximum width for larger screens */
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    background-color:#8CB2C9 ;
+  }
+
+  .profile-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 10);
+  }
+
+  .avatar {
+   height:200px ;
+    border-radius: 50%;
+    margin-left: 20px;
+    padding-right:10px ;
+  }
+
+  .profile-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-info {
+    flex-grow: 1;
+    padding: 20px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 20px 20px;
+  }
