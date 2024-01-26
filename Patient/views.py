@@ -17,4 +17,4 @@ def take_vaccine(request,id):
     
     VaccineTaken.objects.create(user=request.user, vaccine=vaccine)
 
-    return redirect('homepage')
+    return redirect('vaccine_details',id=id)

@@ -39,7 +39,7 @@
       width:100% ;
       background-color: #8CB2C9;
       color: white;
-      margin-top :100px ;
+      margin-top :200px ;
       padding-top: 100px;
       padding-bottom: 100px;
       padding-right:30px;
@@ -76,7 +76,22 @@
       transform: scaleX(-1);
     
   }
+  .card{
     
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 5);
+    background-color: #8CB2C9;
+}
+   
+
+
 
 
   </style>
@@ -93,7 +108,7 @@
  
 
     
-  <div style='height:80px;' class="navbar justify-content-around    "> 
+  <div style='padding:20px;' class="navbar justify-content-around mb-3  "> 
     <div class="logo-container align-items-center d-flex">
       
       <a class='d-flex align-items-center  ' href="{% url 'homepage' %}">
