@@ -38,14 +38,16 @@ def edit_vaccine(request,id):
         form = VaccineForm(request.POST,instance=vaccine)
         if form.is_valid():
             form.save()
-            return redirect('homepage')
+            messages.success(request,'The info has been updated successfully!')
+            return redirect('vaccine_details',id=id)
+            
 
     return render(request,'edit_vaccine.html',{'form':form})
 
 def delete_vaccine(request,id):
     vaccine = Vaccine.objects.get(pk=id)
     vaccine.delete()
-    return redirect('homepage')
+    return redirect('all_vaccines')
 
 def details(request,id):
     vaccine = Vaccine.objects.get(pk=id)
