@@ -1,9 +1,12 @@
-
+![Header](./readme/front-page.png)
 # Amader Vaccine
 
 Amader Vaccine is a web application , developed with Django MVT (Model-View-Templates)-a powerful python web framework which connects patients and doctors for the purpose of administering and sharing vaccines via the internet. Providing a one-stop center for vaccinations, with a dedicated user role for both doctors and patients to take and administer the vaccine online.
 
-[Live Link](https://amader-vaccine.onrender.com/)
+[Live Link](https://amader-vaccine.onrender.com/)  
+
+#### Please wait while it loads the full page. It takes time to activate the hosting as the dev is using a free deployment package. 
+####Thanks for your patience !  
 
 
 
