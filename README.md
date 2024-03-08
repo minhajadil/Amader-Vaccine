@@ -5,9 +5,11 @@ Amader Vaccine is a web application , developed with Django MVT (Model-View-Temp
 
 [Live Link](https://amader-vaccine.onrender.com/)  
 
-#### Please wait while it loads the full page. It takes time to activate the hosting as the dev is using a free deployment package. 
-#### Please use a PC to render the website because it is not yet responsive (The dev is too lazy and dislikes colors and designs) 
-#### Thanks for your patience !  
+### Special Requests
+
+- Please wait while it loads the full page. It takes time to activate the hosting as the dev is using a free deployment package. 
+- Please use a PC to render the website because it is not yet responsive (The dev is too lazy and dislikes colors and designs) 
+- Thanks for your patience !  
 
 
 
